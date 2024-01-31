@@ -1,0 +1,78 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Responsive navbar using only html css</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+	<header>
+		
+
+</head>
+<body>
+{% load static %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+
+	<header>
+		<ul class="navbar">
+			<li><a href="{% url 'index' %}" class="active">Home</a></li>
+			</ul>
+
+		<div class="main">
+			<a href="{% url 'signup' %}" class="user"><i class="ri-user-fill"></i>Register</a>
+			<a href="{% url 'login' %}">Sign In</a>
+			<div class="bx bx-menu" id="menu-icon"></div>
+		</div>
+	</header>
+
+	
+	<script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<!--divinectorweb.com-->
+<head>
+    <meta charset="UTF-8">
+    <title>animated background with pure css and html</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	{% load static %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+    <div class="banner-text">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>                        
+            <li><a href="{% url 'signup' %}">Registration</a></li>            
+            <li><a href="{% url 'login' %}">Login</a></li>            
+        </ul>
+        
+        <h2>Secure file sharing</h2>
+		<p>Welcome to the portal of secure file sharing</p>
+    </div>
+    
+    <div class="animation-area">
+        <ul class="box-area">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>	
+</body>
+</html>

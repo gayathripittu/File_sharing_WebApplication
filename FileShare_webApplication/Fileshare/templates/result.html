@@ -1,0 +1,23 @@
+</head>
+<body>
+{% load static %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+
+	<header>
+		<ul class="navbar">
+			<li><a href="{% url 'index' %}" class="active">Home</a></li>
+			</ul>
+
+		<div class="main">
+			<a href="{% url 'upload' %}" class="user"><i class="ri-file"></i>upload file</a>
+			<a href="{% url 'fileview' %}">view files</a>
+			<a href="{% url 'logout' %}">logout</a>
+			<div class="bx bx-menu" id="menu-icon"></div>
+		</div>
+	</header>
+
+	<!--js link--->
+	<script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>

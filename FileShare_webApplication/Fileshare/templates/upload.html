@@ -1,0 +1,63 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'signup.css' %}">
+<!--<link rel="stylesheet" href="{% static 'homepage.css' %}">-->
+
+<!--<h1>hello {{name}}!!!</h1>
+<form action="add">
+    Enter a number:<input type="text" name="num1"><br>
+    Enter a number:<input type="text" name="num2"><br>
+    <input type="submit">
+</form>-->
+
+<!-- Registration Form -->
+
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- ===== Iconscout CSS ===== -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="style.css">
+             
+        <!--<title>Login & Registration Form</title>-->
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="forms">
+            <!-- Registration Form -->
+            <div class="form upload">
+                <span class="title">File upload</span>
+
+                <form action="{% url 'file_upload' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% block content %}
+                    <div class="input-field">
+                        <input type="email" placeholder="Enter sender email" {{form.r_email}}>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter Key" {{form.key}}>
+                    </div>
+                <input type="file" {{form.file}}>
+                        
+
+                    <div class="input-field button">
+                        <button type="submit" class="button"><b>send</b></button><br>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    </body>
+    </html>

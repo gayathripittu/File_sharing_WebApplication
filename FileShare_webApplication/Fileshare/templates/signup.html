@@ -1,0 +1,161 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'signup.css' %}">
+<!--<link rel="stylesheet" href="{% static 'homepage.css' %}">-->
+
+<!--<h1>hello {{name}}!!!</h1>
+<form action="add">
+    Enter a number:<input type="text" name="num1"><br>
+    Enter a number:<input type="text" name="num2"><br>
+    <input type="submit">
+</form>-->
+
+<!-- Registration Form -->
+
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- ===== Iconscout CSS ===== -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="style.css">
+<style>
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+          
+          /* The actual popup */
+          .popup .popuptext {
+            visibility: hidden;
+            width: 160px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -80px;
+          }
+          
+          /* Popup arrow */
+          .popup .popuptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+          }
+          
+          /* Toggle this class - hide and show the popup */
+          .popup .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+          }
+          
+          /* Add animation (fade in the popup) */
+          @-webkit-keyframes fadeIn {
+            from {opacity: 0;} 
+            to {opacity: 1;}
+          }
+          
+          @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity:1 ;}
+          }
+        </style>
+             
+        <!--<title>Login & Registration Form</title>-->
+    </head>
+    <body>
+        <div id="message">
+        {% if messages %}
+{% for message in messages %}
+    {% if message.tags == 'error'%}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% else %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+   
+    {% endif %}				
+    {% endfor %}
+{% endif %}
+</div>  
+<div class="grad"> 
+        <div class="container">
+            <div class="forms">
+            <!-- Registration Form -->
+            <div class="form signup">
+                <span class="title">Registration</span>
+
+                <form action="{% url 'uploaddetails' %}" method="post">
+                    {% csrf_token %}
+                    {% block content %}
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your name" {{form.name}} required>
+                        <i class="uil uil-user icon"></i>
+                    </div>
+                    <div class="input-field">
+                        
+                        
+                        <input type="text" placeholder="Enter your email" {{form.email}} required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Create a password" {{form.password}} required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Confirm a password" {{form.c_password}} required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+                    <div class="popup" onclick="myFunction()">Click me to know password rules!
+                        <span class="popuptext" id="myPopup">Password must contain a Uppercase and lowercase letter, a number, special character</span>
+                      </div> 
+
+                    <div class="input-field button">
+                        <button type="submit" class="button"><b>Signup</b></button><br>
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Already a member?
+                        <a href="{% url 'login' %}" class="text login-link">Login Now</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<script>
+    // When the user clicks on <div>, open the popup
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+    </script>
+    </body>
+    </html>
